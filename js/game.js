@@ -24,7 +24,7 @@ fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=mul
             };
 
             const answerChoices = [...loadedQuestion.incorrect_answers];
-            formattedQuestion.answer = Math.floor(Math.random() * 3) + 1;
+            formattedQuestion.answer = Math.ceil(Math.random() * 3) + 1;
             answerChoices.splice(formattedQuestion.answer - 1, 0, loadedQuestion.correct_answer);
 
             answerChoices.forEach((choice, index) => {
@@ -54,7 +54,7 @@ getNewQuestion = () => {
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
         //go to end page
-        return window.location.assign('/end.html');
+        return window.location.assign('/html/end.html');
     }
     questionCounter++;
     progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
