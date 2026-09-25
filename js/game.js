@@ -56,13 +56,12 @@ getNewQuestion = () => {
         //go to end page
         return window.location.assign('/html/end.html');
     }
-    questionCounter++;
-    progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
 
-    //Update the progress bar
-
+    // Actualizás la barra ANTES de sumar el contador
     progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
+    questionCounter++;
+    progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
 
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
